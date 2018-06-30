@@ -21,3 +21,6 @@ $ ansible-playbook -K ansible/main.yml
 Where `<theme>` is the name of the branch where the desired theme resides.
 You can also add the `--check --diff` options to see the differences between your
 etcfiles and these without clobbering them.
+
+Also, you can install certain dotfiles using Ansible tags by adding the
+`--tags "<tag>"` option.
