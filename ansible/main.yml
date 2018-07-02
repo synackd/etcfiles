@@ -1,5 +1,8 @@
 - hosts: localhost
   tasks:
-  - include: tasks/lightdm.yml tags=lightdm
-  - include: tasks/pacman.yml tags=pacman
-  - include: tasks/i3.yml tags=i3
+  - include: tasks/lightdm.yml
+    tags: lightdm
+  - include: tasks/pacman.yml
+    tags: pacman
+  - include: tasks/i3.yml
+    tags: i3
