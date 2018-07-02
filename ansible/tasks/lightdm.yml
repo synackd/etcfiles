@@ -46,11 +46,14 @@
           owner: root
           group: root
 
+- set_fact:
+        username: "{{ ansible_user_id }}"
+
 - name: Install user config
-  become: no
+  become: yes
   template:
           src: ../../var/lib/AccountsService/users/devon
-          dest: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
+          dest: "/var/lib/AccountsService/users/{{ username }}"
           owner: root
           group: root
           mode: 0644
