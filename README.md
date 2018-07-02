@@ -1,6 +1,6 @@
 # dev-flex-arch
 Visit
-[dotfiles/dev-flex-arch](https://github.com/synackd/dotfiles/tree/dev-flex-arch) for
+[dotfiles/dev-flex-arch](https://github.com/synackd/dotfiles/tree/sandbox/dev-flex-arch) for
 dotfiles.
 
 ## Requirements
