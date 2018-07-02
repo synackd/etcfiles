@@ -1,3 +1,4 @@
 - hosts: localhost
   tasks:
-  - include: tasks/lightdm.yml tags=lightdm
+  - include: tasks/lightdm.yml
+    tags: lightdm
