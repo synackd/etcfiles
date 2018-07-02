@@ -45,3 +45,21 @@
           backup: yes
           owner: root
           group: root
+
+- name: Install user config
+  become: no
+  template:
+          src: ../../var/lib/AccountsService/users/devon
+          dest: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
+          owner: root
+          group: root
+          mode: 0644
+
+- name: Install user icon
+  become: yes
+  copy:
+          src: ../../var/lib/AccountsService/icons/devon.jpg
+          dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}.jpg"
+          owner: root
+          group: root
+          mode: 0644

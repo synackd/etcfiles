@@ -1,0 +1,5 @@
+[User]
+Email=
+XSession=i3-with-shmlog
+Icon=/var/lib/AccountsService/icons/{{ ansible_user_id }}.jpg
+SystemAccount=false
