@@ -18,6 +18,15 @@
           group: root
           mode: 0644
 
+- name: Create greeter directory
+  become: yes
+  file:
+          path: /usr/share/backgrounds/greeter
+          state: directory
+          owner: root
+          group: root
+          mode: 0755
+
 - name: Install LightDM wallpaper
   become: yes
   copy:
