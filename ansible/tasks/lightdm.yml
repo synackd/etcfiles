@@ -54,6 +54,7 @@
   template:
           src: ../../var/lib/AccountsService/users/devon
           dest: "/var/lib/AccountsService/users/{{ username }}"
+          backup: yes
           owner: root
           group: root
           mode: 0644
@@ -63,6 +64,7 @@
   copy:
           src: ../../var/lib/AccountsService/icons/devon.jpg
           dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}.jpg"
+          backup: yes
           owner: root
           group: root
           mode: 0644

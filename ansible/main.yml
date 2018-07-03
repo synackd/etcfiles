@@ -6,5 +6,7 @@
     tags: pacman
   - include: tasks/i3.yml
     tags: i3
+  - include: tasks/net.yml
+    tags: net
   - include: tasks/hardware.yml
     tags: hardware
