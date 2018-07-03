@@ -1,0 +1,9 @@
+- name: Configure Udisks2 rules
+  become: yes
+  copy:
+        src: ../../etc/polkit-1/rules.d/10-udisks2.rules
+        dest: /etc/polkit-1/rules.d/10-udisks2.rules
+        backup: yes
+        owner: root
+        group: root
+        mode: 0644

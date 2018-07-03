@@ -1,0 +1,55 @@
+polkit.addRule(function(action, subject) {
+if ((
+action.id == "org.freedesktop.udisks2.ata-check-power" ||
+action.id == "org.freedesktop.udisks2.ata-secure-erase" ||
+action.id == "org.freedesktop.udisks2.ata-smart-enable-disable" ||
+action.id == "org.freedesktop.udisks2.ata-smart-selftest" ||
+action.id == "org.freedesktop.udisks2.ata-smart-simulate" ||
+action.id == "org.freedesktop.udisks2.ata-smart-update" ||
+action.id == "org.freedesktop.udisks2.ata-standby" ||
+action.id == "org.freedesktop.udisks2.ata-standby-other-seat" ||
+action.id == "org.freedesktop.udisks2.ata-standby-system" ||
+action.id == "org.freedesktop.udisks2.bcache.manage-bcache" ||
+action.id == "org.freedesktop.udisks2.btrfs.manage-btrfs" ||
+action.id == "org.freedesktop.udisks2.cancel-job" ||
+action.id == "org.freedesktop.udisks2.cancel-job-other-user" ||
+action.id == "org.freedesktop.udisks2.eject-media" ||
+action.id == "org.freedesktop.udisks2.eject-media-other-seat" ||
+action.id == "org.freedesktop.udisks2.eject-media-system" ||
+action.id == "org.freedesktop.udisks2.encrypted-change-passphrase" ||
+action.id == "org.freedesktop.udisks2.encrypted-change-passphrase-system" ||
+action.id == "org.freedesktop.udisks2.encrypted-lock-others" ||
+action.id == "org.freedesktop.udisks2.encrypted-unlock" ||
+action.id == "org.freedesktop.udisks2.encrypted-unlock-crypttab" ||
+action.id == "org.freedesktop.udisks2.encrypted-unlock-other-seat" ||
+action.id == "org.freedesktop.udisks2.encrypted-unlock-system" ||
+action.id == "org.freedesktop.udisks2.filesystem-fstab" ||
+action.id == "org.freedesktop.udisks2.filesystem-mount" ||
+action.id == "org.freedesktop.udisks2.filesystem-mount-other-seat" ||
+action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
+action.id == "org.freedesktop.udisks2.filesystem-take-ownership" ||
+action.id == "org.freedesktop.udisks2.filesystem-unmount-others" ||
+action.id == "org.freedesktop.udisks2.loop-delete-others" ||
+action.id == "org.freedesktop.udisks2.loop-modify-others" ||
+action.id == "org.freedesktop.udisks2.loop-setup" ||
+action.id == "org.freedesktop.udisks2.lvm2.manage-lvm" ||
+action.id == "org.freedesktop.udisks2.manage-md-raid" ||
+action.id == "org.freedesktop.udisks2.manage-swapspacei" ||
+action.id == "org.freedesktop.udisks2.modify-device" ||
+action.id == "org.freedesktop.udisks2.modify-device-other-seat" ||
+action.id == "org.freedesktop.udisks2.modify-device-system" ||
+action.id == "org.freedesktop.udisks2.modify-drive-settings" ||
+action.id == "org.freedesktop.udisks2.modify-system-configuration" ||
+action.id == "org.freedesktop.udisks2.open-device" ||
+action.id == "org.freedesktop.udisks2.open-device-system" ||
+action.id == "org.freedesktop.udisks2.power-off-drive" ||
+action.id == "org.freedesktop.udisks2.power-off-drive-other-seat" ||
+action.id == "org.freedesktop.udisks2.power-off-drive-system" ||
+action.id == "org.freedesktop.udisks2.read-system-configuration-secrets" ||
+action.id == "org.freedesktop.udisks2.rescan" ||
+action.id == "org.freedesktop.udisks2.zram.manage-zram") &&
+subject.isInGroup("storage"))
+{
+return polkit.Result.YES;
+}
+});
