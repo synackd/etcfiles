@@ -17,3 +17,13 @@
           owner: root
           group: root
           mode: 0644
+
+- name: Install lock script (needs xautolock)
+  become: yes
+  copy:
+          src: ../../etc/pm/sleep.d/00-lock
+          dest: /etc/pm/sleep.d/00-lock
+          backup: yes
+          owner: root
+          group: root
+          mode: 0755

@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# 00-lock: Lock workstation on suspend and hibernate.
+
+username=synackd
+userhome=/home/"$username"
+export XAUTHORITY="$userhome"/.Xauthority
+export DISPLAY=:0
+
+case "$1" in
+	hibernate|suspend)
+		su $username -c '/usr/bin/xautolock -locknow'
+		;;
+	thaw|resume)
+		;;
+	*) exit $NA
+		;;
+esac
