@@ -7,3 +7,30 @@
         owner: root
         group: root
         mode: 0644
+
+- name: Configure touchpad synaptics
+  become: yes
+  copy:
+          src: ../../etc/X11/xorg.conf.d/30-touchpad.conf
+          dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+          backup: yes
+          owner: root
+          group: root
+          mode: 0644
+
+- name: Adjust mouse refresh rate
+  become: yes
+  blockinfile:
+          path: /lib/udev/hwdb.d/90-libinput-model-quirks.hwdb
+          state: present
+          marker: "{mark}"
+          marker_begin: "# X220 (Tablet) #"
+          marker_end: "#################"
+          backup: yes
+          block: |
+                  libinput:name:SynPS/2 Synaptics TouchPad:dmi:*svnLENOVO:*:pvrThinkPadX220*
+                   LIBINPUT_MODEL_LENOVO_X220_TOUCHPAD_FW81=1
+
+- name: Apply mouse refresh rate
+  become: yes
+  command: udevadm hwdb --update
