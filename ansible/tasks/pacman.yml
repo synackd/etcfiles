@@ -1,6 +1,5 @@
 - name: Install pacman.conf
   become: yes
-  when: ansible_os_family == "Archlinux"
   copy:
           src: ../../etc/pacman.conf
           dest: /etc/pacman.conf
