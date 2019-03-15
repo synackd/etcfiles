@@ -1,65 +1,70 @@
 - name: Install lightdm.conf
   become: yes
   copy:
-          src: ../../etc/lightdm/lightdm.conf
-          dest: /etc/lightdm/lightdm.conf
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../etc/lightdm/lightdm.conf
+      dest: /etc/lightdm/lightdm.conf
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Install lightdm-webkit2-greeter.conf
   become: yes
   copy:
-          src: ../../etc/lightdm/lightdm-webkit2-greeter.conf
-          dest: /etc/lightdm/lightdm-webkit2-greeter.conf
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../etc/lightdm/lightdm-webkit2-greeter.conf
+      dest: /etc/lightdm/lightdm-webkit2-greeter.conf
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Create greeter directory
   become: yes
   file:
-          path: /usr/share/backgrounds/greeter
-          state: directory
-          owner: root
-          group: root
-          mode: 0755
+      path: /usr/share/backgrounds/greeter
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
 
 - name: Install LightDM wallpaper
   become: yes
   copy:
-          src: ../../usr/share/backgrounds/greeter/radpack_3.jpg
-          dest: /usr/share/backgrounds/greeter/radpack_3.jpg
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../usr/share/backgrounds/greeter/radpack_3.jpg
+      dest: /usr/share/backgrounds/greeter/radpack_3.jpg
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Install LightDM dark style
   become: yes
   copy:
-          src: ../../usr/share/lightdm-webkit/themes/material2-dark/
-          dest: /usr/share/lightdm-webkit/themes/material2-dark/
-          backup: yes
-          owner: root
-          group: root
+      src: ../../usr/share/lightdm-webkit/themes/material2-dark/
+      dest: /usr/share/lightdm-webkit/themes/material2-dark/
+      backup: yes
+      owner: root
+      group: root
+
+- set_fact:
+      username: "{{ ansible_user_id }}"
 
 - name: Install user config
   become: no
   template:
-          src: ../../var/lib/AccountsService/users/devon
-          dest: "/var/lib/AccountsService/users/{{ ansible_user_id }}"
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../var/lib/AccountsService/users/devon
+      dest: "/var/lib/AccountsService/users/{{ username }}"
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Install user icon
   become: yes
   copy:
-          src: ../../var/lib/AccountsService/icons/devon.jpg
-          dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}.jpg"
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../var/lib/AccountsService/icons/devon.jpg
+      dest: "/var/lib/AccountsService/icons/{{ ansible_user_id }}.jpg"
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644

@@ -1,19 +1,29 @@
 - name: Install i3-with-shmlog.desktop
   become: yes
   copy:
-          src: ../../usr/share/xsessions/i3-with-shmlog.desktop
-          dest: /usr/share/xsessions/i3-with-shmlog.desktop
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../usr/share/xsessions/i3-with-shmlog.desktop
+      dest: /usr/share/xsessions/i3-with-shmlog.desktop
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Install i3.desktop
   become: yes
   copy:
-          src: ../../usr/share/xsessions/i3.desktop
-          dest: /usr/share/xsessions/i3.desktop
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../usr/share/xsessions/i3.desktop
+      dest: /usr/share/xsessions/i3.desktop
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
+
+- name: Install lock script (needs xautolock)
+  become: yes
+  copy:
+      src: ../../etc/pm/sleep.d/00-lock
+      dest: /etc/pm/sleep.d/00-lock
+      backup: yes
+      owner: root
+      group: root
+      mode: 0755
