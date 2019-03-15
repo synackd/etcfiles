@@ -1,12 +1,12 @@
 - name: Install pacman.conf
   become: yes
   copy:
-          src: ../../etc/pacman.conf
-          dest: /etc/pacman.conf
-          backup: yes
-          owner: root
-          group: root
-          mode: 0644
+      src: ../../etc/pacman.conf
+      dest: /etc/pacman.conf
+      backup: yes
+      owner: root
+      group: root
+      mode: 0644
 
 - name: Install update mandb post-transaction hook
   become: yes
