@@ -1,0 +1,9 @@
+- name: Install update mlocate db init script (runs on shutdown)
+  become: yes
+  copy:
+      src: ../../etc/local.d/update-mlocate-db.stop
+      dest: /etc/local.d/update-mlocate-db.stop
+      backup: yes
+      owner: root
+      group: root
+      mode: 0755

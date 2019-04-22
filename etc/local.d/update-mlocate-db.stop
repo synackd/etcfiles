@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+echo "Updating mlocate database..."
+/usr/bin/updatedb

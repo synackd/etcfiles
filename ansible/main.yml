@@ -1,5 +1,7 @@
 - hosts: localhost
   tasks:
+  - include: tasks/init-scripts.yml
+    tags: init.d
   - include: tasks/lightdm.yml
     tags: lightdm
   - include: tasks/pacman.yml

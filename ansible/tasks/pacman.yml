@@ -17,13 +17,3 @@
       owner: root
       group: root
       mode: 0644
-
-- name: Install update mlocate db post-transaction hook
-  become: yes
-  copy:
-      src: ../../usr/share/libalpm/hooks/update-mlocate-db.hook
-      dest: /usr/share/libalpm/hooks/update-mlocate-db.hook
-      backup: yes
-      owner: root
-      group: root
-      mode: 0644
